@@ -24,9 +24,7 @@
           </li>
         </ul>
       </div>
-      <div class="right-good">
-        <div></div>
-      </div>
+      <div class="right-good"></div>
     </section>
     <Navbar />
   </div>
