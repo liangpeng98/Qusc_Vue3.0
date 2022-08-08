@@ -21,7 +21,7 @@
 const porps = defineProps({
   list: Array
 })
-const emits = defineEmits(['click'])
+const emits = defineEmits(['handle'])
 // ctx 是一个对象 它暴露三个组件的 property  attrs, slots, emit
 const onHandle = (v) => {
   // Attribute (非响应式对象)
