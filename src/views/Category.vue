@@ -3,10 +3,18 @@
   <div class="category">
     <header class="cat-search">
       <div class="back">
-        <van-icon name="arrow-left" class="back-icon" color="#666" />
+        <van-icon
+          name="arrow-left"
+          class="back-icon"
+          color="#666"
+        />
       </div>
       <div class="search">
-        <van-icon name="search" class="search-icon" color="#666" />
+        <van-icon
+          name="search"
+          class="search-icon"
+          color="#666"
+        />
         <span class="search-text">清风徐来，水波不兴</span>
       </div>
     </header>
@@ -30,35 +38,25 @@
   </div>
 </template>
 
-<script>
-import { reactive, toRefs } from 'vue'
-export default {
-  setup() {
-    const state = reactive({
-      categoryList: [
-        { name: '热门推荐', categoryId: 1 },
-        { name: '手机数码', categoryId: 2 },
-        { name: '电脑办公', categoryId: 3 },
-        { name: '汽车生活', categoryId: 4 },
-        { name: '母婴童装', categoryId: 5 },
-        { name: '家居家装', categoryId: 6 },
-        { name: '医药保健', categoryId: 7 },
-        { name: '玩具乐器', categoryId: 8 },
-        { name: '酒水饮料', categoryId: 9 },
-        { name: '食品生鲜', categoryId: 10 },
-        { name: '运动户外', categoryId: 11 },
-        { name: '国际大牌', categoryId: 12 }
-      ],
-      currentIndex: 1
-    })
-    const onSelectSideHandle = id => {
-      state.currentIndex = id
-    }
-    return {
-      ...toRefs(state),
-      onSelectSideHandle
-    }
-  }
+<script setup>
+import { reactive, ref } from 'vue'
+const categoryList = reactive([
+  { name: '热门推荐', categoryId: 1 },
+  { name: '手机数码', categoryId: 2 },
+  { name: '电脑办公', categoryId: 3 },
+  { name: '汽车生活', categoryId: 4 },
+  { name: '母婴童装', categoryId: 5 },
+  { name: '家居家装', categoryId: 6 },
+  { name: '医药保健', categoryId: 7 },
+  { name: '玩具乐器', categoryId: 8 },
+  { name: '酒水饮料', categoryId: 9 },
+  { name: '食品生鲜', categoryId: 10 },
+  { name: '运动户外', categoryId: 11 },
+  { name: '国际大牌', categoryId: 12 }
+]);
+const currentIndex = ref(1);
+const onSelectSideHandle = id => {
+  currentIndex.value = id
 }
 </script>
 

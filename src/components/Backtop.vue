@@ -1,31 +1,28 @@
 <template>
-  <div class="back-top" :class="{ show: flag }" @click="onScrollTop">
-    <van-icon class="icon" name="back-top" color="#1989fa" />
+  <div
+    class="back-top"
+    :class="{ show: flag }"
+    @click="onScrollTop"
+  >
+    <van-icon
+      class="icon"
+      name="back-top"
+      color="#1989fa"
+    />
   </div>
 </template>
 
-<script>
-import { toRefs, reactive } from 'vue'
-export default {
-  setup() {
-    const state = reactive({
-      flag: true
-    })
-    window.onscroll = function() {
-      const scrollTop =
-        document.documentElement.scrollTop || document.body.scrollTop
-      //   console.log(scrollTop)
-      state.flag = scrollTop > 200 ? false : true
-    }
-    const onScrollTop = () => {
-      document.documentElement.scrollTop = 0
-      document.body.scrollTop = 0
-    }
-    return {
-      ...toRefs(state),
-      onScrollTop
-    }
-  }
+<script setup>
+import { ref, reactive } from 'vue'
+const flag = ref(true)
+window.onscroll = function () {
+  const scrollTop =
+    document.documentElement.scrollTop || document.body.scrollTop
+  flag.value = scrollTop > 200 ? false : true
+}
+const onScrollTop = () => {
+  document.documentElement.scrollTop = 0
+  document.body.scrollTop = 0
 }
 </script>
 

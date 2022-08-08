@@ -1,26 +1,29 @@
 <template>
-  <van-tabbar v-model="state" fixed class="nav-bar" @change="onChangeHandle">
-    <van-tabbar-item icon="wap-home-o" to="/">首页</van-tabbar-item>
-    <van-tabbar-item icon="apps-o" to="/category">分类</van-tabbar-item>
+  <van-tabbar
+    v-model="state"
+    fixed
+    class="nav-bar"
+    @change="onChangeHandle"
+  >
+    <van-tabbar-item
+      icon="wap-home-o"
+      to="/"
+    >首页</van-tabbar-item>
+    <van-tabbar-item
+      icon="apps-o"
+      to="/category"
+    >分类</van-tabbar-item>
     <van-tabbar-item icon="shopping-cart-o">购物车</van-tabbar-item>
     <van-tabbar-item icon="friends-o">我的</van-tabbar-item>
   </van-tabbar>
 </template>
 
-<script>
+<script setup>
 import { useStore } from 'vuex'
-export default {
-  setup() {
-    const store = useStore()
-    const state = store.state.active
-    const onChangeHandle = v => {
-      store.dispatch('setActive', v)
-    }
-    return {
-      onChangeHandle,
-      state
-    }
-  }
+const store = useStore()
+const state = store?.state?.active
+const onChangeHandle = v => {
+  store.dispatch('setActive', v)
 }
 </script>
 
