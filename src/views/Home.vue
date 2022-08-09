@@ -139,7 +139,7 @@ const goodList = reactive([
   { name: 'good7', src: require('../assets/img/good7.png') }
 ])
 const stroe = useStore()
-// stroe.dispatch('setActive', 0)
+stroe.dispatch('setActive', 0)
 const router = useRouter()
 // 方法
 const onLoginHandle = () => { }
