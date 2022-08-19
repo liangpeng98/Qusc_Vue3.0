@@ -132,7 +132,6 @@ const goodList = reactive([
   { name: 'good7', src: good7 },
 ])
 const stroe = useStore()
-stroe.dispatch('setActive', 0)
 const router = useRouter()
 // 方法
 const onLoginHandle = () => {}
