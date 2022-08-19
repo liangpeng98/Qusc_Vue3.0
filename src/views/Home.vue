@@ -3,10 +3,7 @@
     <header class="home-header">
       <div class="pro-title">趣商城</div>
       <div class="search">山河无恙，人间皆安</div>
-      <div
-        class="login-title"
-        @click="onLoginHandle"
-      >登录</div>
+      <div class="login-title" @click="onLoginHandle">登录</div>
     </header>
     <Swipe
       class="home-swipe"
@@ -14,15 +11,8 @@
       @handle="onLinkJDHandle"
     ></Swipe>
     <nav class="home-nav">
-      <div
-        class="nav-item"
-        v-for="item in categoryList"
-        :key="item.categoryId"
-      >
-        <img
-          :src="item.imgUrl"
-          alt=""
-        />
+      <div class="nav-item" v-for="item in categoryList" :key="item.categoryId">
+        <img :src="item.imgUrl" alt="" />
         <span>{{ item.name }}</span>
       </div>
     </nav>
@@ -52,104 +42,107 @@ import { reactive } from 'vue'
 import { useRouter } from 'vue-router'
 import { useStore } from 'vuex'
 import { Toast } from 'vant'
-import Swipe from '@/components/Swipe'
-import Navbar from '@/components/Navbar'
-import Backtop from '@/components/Backtop'
+import Swipe from '@/components/Swipe.vue'
+import Navbar from '@/components/Navbar.vue'
+import Backtop from '@/components/Backtop.vue'
+import banner1 from '@/assets/img/banner1.png'
+import banner2 from '@/assets/img/banner2.png'
+import banner3 from '@/assets/img/banner3.png'
+import banner4 from '@/assets/img/banner4.png'
+import banner5 from '@/assets/img/banner5.png'
+import good1 from '@/assets/img/good1.png'
+import good2 from '@/assets/img/good2.png'
+import good3 from '@/assets/img/good3.png'
+import good4 from '@/assets/img/good4.png'
+import good5 from '@/assets/img/good5.png'
+import good6 from '@/assets/img/good6.png'
+import good7 from '@/assets/img/good7.png'
 // data数据
 const swipeList = reactive([
-  { name: 'img1', src: require('../assets/img/banner1.png') },
-  { name: 'img2', src: require('../assets/img/banner2.png') },
-  { name: 'img3', src: require('../assets/img/banner3.png') },
-  { name: 'img4', src: require('../assets/img/banner4.png') },
-  { name: 'img5', src: require('../assets/img/banner5.png') }
+  { name: 'img1', src: banner1 },
+  { name: 'img2', src: banner2 },
+  { name: 'img3', src: banner3 },
+  { name: 'img4', src: banner4 },
+  { name: 'img5', src: banner5 },
 ])
 const categoryList = reactive([
   {
     name: '新蜂超市',
-    imgUrl:
-      'https://s.yezgea02.com/1604041127880/%E8%B6%85%E5%B8%82%402x.png',
-    categoryId: 100001
+    imgUrl: 'https://s.yezgea02.com/1604041127880/%E8%B6%85%E5%B8%82%402x.png',
+    categoryId: 100001,
   },
   {
     name: '新蜂服饰',
-    imgUrl:
-      'https://s.yezgea02.com/1604041127880/%E6%9C%8D%E9%A5%B0%402x.png',
-    categoryId: 100003
+    imgUrl: 'https://s.yezgea02.com/1604041127880/%E6%9C%8D%E9%A5%B0%402x.png',
+    categoryId: 100003,
   },
   {
     name: '全球购',
     imgUrl:
       'https://s.yezgea02.com/1604041127880/%E5%85%A8%E7%90%83%E8%B4%AD%402x.png',
-    categoryId: 100002
+    categoryId: 100002,
   },
   {
     name: '新蜂生鲜',
-    imgUrl:
-      'https://s.yezgea02.com/1604041127880/%E7%94%9F%E9%B2%9C%402x.png',
-    categoryId: 100004
+    imgUrl: 'https://s.yezgea02.com/1604041127880/%E7%94%9F%E9%B2%9C%402x.png',
+    categoryId: 100004,
   },
   {
     name: '新蜂到家',
-    imgUrl:
-      'https://s.yezgea02.com/1604041127880/%E5%88%B0%E5%AE%B6%402x.png',
-    categoryId: 100005
+    imgUrl: 'https://s.yezgea02.com/1604041127880/%E5%88%B0%E5%AE%B6%402x.png',
+    categoryId: 100005,
   },
   {
     name: '充值缴费',
-    imgUrl:
-      'https://s.yezgea02.com/1604041127880/%E5%85%85%E5%80%BC%402x.png',
-    categoryId: 100006
+    imgUrl: 'https://s.yezgea02.com/1604041127880/%E5%85%85%E5%80%BC%402x.png',
+    categoryId: 100006,
   },
   {
     name: '9.9元拼',
     imgUrl: 'https://s.yezgea02.com/1604041127880/9.9%402x.png',
-    categoryId: 100007
+    categoryId: 100007,
   },
   {
     name: '领劵',
-    imgUrl:
-      'https://s.yezgea02.com/1604041127880/%E9%A2%86%E5%88%B8%402x.png',
-    categoryId: 100008
+    imgUrl: 'https://s.yezgea02.com/1604041127880/%E9%A2%86%E5%88%B8%402x.png',
+    categoryId: 100008,
   },
   {
     name: '省钱',
-    imgUrl:
-      'https://s.yezgea02.com/1604041127880/%E7%9C%81%E9%92%B1%402x.png',
-    categoryId: 100009
+    imgUrl: 'https://s.yezgea02.com/1604041127880/%E7%9C%81%E9%92%B1%402x.png',
+    categoryId: 100009,
   },
   {
     name: '全部',
-    imgUrl:
-      'https://s.yezgea02.com/1604041127880/%E5%85%A8%E9%83%A8%402x.png',
-    categoryId: 100010
-  }
+    imgUrl: 'https://s.yezgea02.com/1604041127880/%E5%85%A8%E9%83%A8%402x.png',
+    categoryId: 100010,
+  },
 ])
 const goodList = reactive([
   {
     name: 'good1',
-    src: require('../assets/img/good1.png'),
-    desc:
-      '力宝克（REBOK）功放机家用大功率专业5.1家庭影院蓝牙KTV音响重低音数字hifi定阻功放  1600W双解码hifi大功率（A5）'
+    src: good1,
+    desc: '力宝克（REBOK）功放机家用大功率专业5.1家庭影院蓝牙KTV音响重低音数字hifi定阻功放  1600W双解码hifi大功率（A5）',
   },
-  { name: 'good2', src: require('../assets/img/good2.png') },
-  { name: 'good3', src: require('../assets/img/good3.png') },
-  { name: 'good4', src: require('../assets/img/good4.png') },
-  { name: 'good5', src: require('../assets/img/good5.png') },
-  { name: 'good6', src: require('../assets/img/good6.png') },
-  { name: 'good7', src: require('../assets/img/good7.png') }
+  { name: 'good2', src: good2 },
+  { name: 'good3', src: good3 },
+  { name: 'good4', src: good4 },
+  { name: 'good5', src: good5 },
+  { name: 'good6', src: good6 },
+  { name: 'good7', src: good7 },
 ])
 const stroe = useStore()
 stroe.dispatch('setActive', 0)
 const router = useRouter()
 // 方法
-const onLoginHandle = () => { }
-const onLinkJDHandle = v => {
+const onLoginHandle = () => {}
+const onLinkJDHandle = (v) => {
   window.open('https://www.jd.com/')
 }
 const onDetailHandle = () => {
   Toast.fail('暂无详情数据')
 }
-  // 模板中用到的数据方法return出去
+// 模板中用到的数据方法return出去
 </script>
 <style lang="less" scoped>
 .home-header {
